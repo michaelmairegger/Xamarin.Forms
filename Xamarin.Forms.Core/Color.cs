@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using Xamarin.Forms.Internals;
 
@@ -122,6 +123,7 @@ namespace Xamarin.Forms
 		{
 		}
 
+		[Pure]
 		public Color MultiplyAlpha(double alpha)
 		{
 			switch (_mode)
@@ -136,6 +138,7 @@ namespace Xamarin.Forms
 			}
 		}
 
+		[Pure]
 		public Color AddLuminosity(double delta)
 		{
 			if (_mode == Mode.Default)
@@ -144,6 +147,7 @@ namespace Xamarin.Forms
 			return new Color(_hue, _saturation, _luminosity + delta, _a, Mode.Hsl);
 		}
 
+		[Pure]
 		public Color WithHue(double hue)
 		{
 			if (_mode == Mode.Default)
@@ -151,6 +155,7 @@ namespace Xamarin.Forms
 			return new Color(hue, _saturation, _luminosity, _a, Mode.Hsl);
 		}
 
+		[Pure]
 		public Color WithSaturation(double saturation)
 		{
 			if (_mode == Mode.Default)
@@ -158,6 +163,7 @@ namespace Xamarin.Forms
 			return new Color(_hue, saturation, _luminosity, _a, Mode.Hsl);
 		}
 
+		[Pure]
 		public Color WithLuminosity(double luminosity)
 		{
 			if (_mode == Mode.Default)
